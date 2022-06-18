@@ -161,7 +161,8 @@ pub fn dice_weighted(a: &Vector, b: &Vector, w: f32) -> f32 {
     overlapping_cnt / nenner
 }
 
-fn main() {
+/*
+pub fn main() {
     let mut builder = builder::NGIndexBuilder::new(3);
 
     let items = vec![
@@ -195,3 +196,4 @@ fn main() {
         println!("{term} {relevance}");
     }
 }
+*/

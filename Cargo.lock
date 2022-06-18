@@ -238,6 +238,7 @@ source = "git+https://github.com/JojiiOfficial/utilsrs#b0b019f328216bae7ad55faba
 [[package]]
 name = "vector_space_model2"
 version = "0.1.1"
+source = "git+https://github.com/JojiiOfficial/VectorSpaceModel#4dd876837e607017bff1176685f79b33703d3122"
 dependencies = [
  "bincode",
  "byteorder",
