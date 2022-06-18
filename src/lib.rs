@@ -1,8 +1,10 @@
 pub mod builder;
 
+pub use vector_space_model2::*;
+
 use ngram_tools::iter::wordgrams::Wordgrams;
 use serde::{Deserialize, Serialize};
-use vector_space_model2::{index::Index, traits::Decodable, DefaultMetadata, Vector};
+use vector_space_model2::{index::Index, traits::Decodable, DefaultMetadata};
 
 #[derive(Deserialize, Serialize)]
 pub struct NGIndex<I: Decodable> {
