@@ -7,5 +7,5 @@ edition = "2021"
 
 [dependencies]
 vector_space_model2 = { git = "https://github.com/JojiiOfficial/VectorSpaceModel" }
-serde = { version = "*", features = ["derive"] }
+serde = { version = "1.0.137", features = ["derive"], default-features = false }
 ngram-tools = { git = "https://github.com/JojiiOfficial/ngram-tools" }

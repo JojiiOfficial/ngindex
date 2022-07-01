@@ -1,11 +1,9 @@
-use std::io::Cursor;
-
 use ngram_tools::iter::wordgrams::Wordgrams;
 use vector_space_model2::{
     build::IndexBuilder,
     metadata::IndexVersion,
     traits::{Decodable, Encodable},
-    DefaultMetadata, Index,
+    DefaultMetadata,
 };
 
 use crate::NGIndex;
@@ -40,11 +38,10 @@ impl<I: Decodable + Encodable> NGIndexBuilder<I> {
 
     /// Build the final NGIndex
     pub fn build(self) -> NGIndex<I> {
-        let mut buf = vec![];
-        self.builder
-            .build(&mut buf, DefaultMetadata::new(IndexVersion::V1))
+        let index = self
+            .builder
+            .build(DefaultMetadata::new(IndexVersion::V1))
             .unwrap();
-        let index = Index::<I, DefaultMetadata>::from_reader(Cursor::new(buf)).unwrap();
         NGIndex::new(index, self.n)
     }
 

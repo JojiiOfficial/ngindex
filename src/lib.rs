@@ -123,6 +123,10 @@ impl<I: Decodable> NGIndex<I> {
     pub fn n(&self) -> usize {
         self.n
     }
+
+    pub fn index(&self) -> &Index<I, DefaultMetadata> {
+        &self.index
+    }
 }
 
 #[inline]
