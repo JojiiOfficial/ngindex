@@ -1,3 +1,5 @@
+use std::io::Write;
+
 use ngram_tools::iter::wordgrams::Wordgrams;
 use vector_space_model2::{
     build::IndexBuilder,
@@ -34,6 +36,15 @@ impl<I: Decodable + Encodable> NGIndexBuilder<I> {
         self.builder.insert_new_vec(id, &terms);
 
         true
+    }
+
+    /// Build the final NGIndex
+    pub fn build_to_writer<W: Write>(self, out: W) -> NGIndex<I> {
+        let index = self
+            .builder
+            .build_to_writer(out, DefaultMetadata::new(IndexVersion::V1))
+            .unwrap();
+        NGIndex::new(index, self.n)
     }
 
     /// Build the final NGIndex
